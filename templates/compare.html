@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-12">
+        <div class="card bg-dark border-primary">
+            <div class="card-body">
+                <h2 class="text-center mb-4 text-white">
+                    <i class="fas fa-balance-scale text-primary"></i>
+                    Comparador de Jogadores
+                </h2>
+
+                <div class="row">
+                    <!-- Primeiro Jogador -->
+                    <div class="col-md-6">
+                        <div class="card bg-dark border-secondary mb-4">
+                            <div class="card-header bg-dark border-secondary">
+                                <h5 class="mb-0 text-white">Primeiro Jogador</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label class="form-label text-white">Guilda</label>
+                                    <input type="text" id="guild1" class="form-control" placeholder="Digite o nome da guilda...">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label text-white">Jogador</label>
+                                    <select id="player1" class="form-select bg-dark text-white" disabled>
+                                        <option value="">Selecione a guilda primeiro</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Segundo Jogador -->
+                    <div class="col-md-6">
+                        <div class="card bg-dark border-secondary mb-4">
+                            <div class="card-header bg-dark border-secondary">
+                                <h5 class="mb-0 text-white">Segundo Jogador</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label class="form-label text-white">Guilda</label>
+                                    <input type="text" id="guild2" class="form-control" placeholder="Digite o nome da guilda...">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label text-white">Jogador</label>
+                                    <select id="player2" class="form-select bg-dark text-white" disabled>
+                                        <option value="">Selecione a guilda primeiro</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botão Comparar -->
+                <div class="text-center">
+                    <button id="compareBtn" class="btn btn-primary btn-lg" disabled>
+                        <i class="fas fa-balance-scale me-2"></i>
+                        Comparar Jogadores
+                    </button>
+                </div>
+
+                <!-- Resultados da Comparação -->
+                <div id="compareResults" class="mt-4 d-none">
+                    <div class="table-responsive">
+                        <table class="table table-dark table-hover">
+                            <thead>
+                                <tr class="text-white">
+                                    <th>Estatística</th>
+                                    <th class="text-end">Jogador 1</th>
+                                    <th class="text-center">Diferença</th>
+                                    <th>Jogador 2</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-white">
+                                <tr class="kd-row">
+                                    <td>K/D Ratio</td>
+                                    <td class="text-end player1-kd"></td>
+                                    <td class="text-center diff-kd"></td>
+                                    <td class="player2-kd"></td>
+                                </tr>
+                                <tr class="damage-row">
+                                    <td>Dano Médio</td>
+                                    <td class="text-end player1-damage"></td>
+                                    <td class="text-center diff-damage"></td>
+                                    <td class="player2-damage"></td>
+                                </tr>
+                                <tr class="cc-row">
+                                    <td>CC's Médio</td>
+                                    <td class="text-end player1-cc"></td>
+                                    <td class="text-center diff-cc"></td>
+                                    <td class="player2-cc"></td>
+                                </tr>
+                                <tr class="winrate-row">
+                                    <td>Taxa de Vitória</td>
+                                    <td class="text-end player1-winrate"></td>
+                                    <td class="text-center diff-winrate"></td>
+                                    <td class="player2-winrate"></td>
+                                </tr>
+                                <tr class="matches-row">
+                                    <td>Total de Partidas</td>
+                                    <td class="text-end player1-matches"></td>
+                                    <td class="text-center diff-matches"></td>
+                                    <td class="player2-matches"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='compare.js') }}"></script>
+{% endblock %} 

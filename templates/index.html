@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisador de Guildas - Black Desert</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-primary">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                <i class="fas fa-crown text-warning"></i>
+                Analisador de Guildas
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">
+                            <i class="fas fa-home"></i> Início
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('compare') }}">
+                            <i class="fas fa-balance-scale"></i> Comparar Jogadores
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card bg-dark border-primary">
+                    <div class="card-body">
+                        <h1 class="text-center mb-4">
+                            <i class="fas fa-crown text-warning"></i>
+                            Analisador de Guildas
+                        </h1>
+                        
+                        <div class="input-group mb-4">
+                            <input type="text" id="guildName" class="form-control" placeholder="Digite o nome da guilda...">
+                            <button class="btn btn-primary" onclick="analyzeGuild()">
+                                <i class="fas fa-search"></i> Analisar
+                            </button>
+                        </div>
+
+                        <div id="loading" class="text-center d-none">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Carregando...</span>
+                            </div>
+                            <p class="mt-2">Analisando guilda...</p>
+                        </div>
+
+                        <div id="error" class="alert alert-danger d-none"></div>
+
+                        <div id="results" class="d-none">
+                            <h2 class="text-center mb-4">
+                                <span id="guildNameDisplay"></span>
+                                <small class="text-muted d-block" id="playerCount"></small>
+                            </h2>
+
+                            <div class="table-responsive">
+                                <table class="table table-dark table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Jogador</th>
+                                            <th>Partidas</th>
+                                            <th>Vitórias</th>
+                                            <th>K/D</th>
+                                            <th>Dano/P</th>
+                                            <th>CC's/P</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="playerTable">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-dark border-top border-primary">
+        <div class="container text-center">
+            <span class="text-muted">SKITO PROGRAMAÇÃO DE HACKS LTDA</span>
+        </div>
+    </footer>
+
+    <!-- Modal de Detalhes do Jogador -->
+    <div class="modal fade" id="playerModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content bg-dark">
+                <div class="modal-header border-primary">
+                    <h5 class="modal-title">
+                        <i class="fas fa-user text-primary"></i>
+                        <span id="modalPlayerName"></span>
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="modalLoading" class="text-center">
+                        <div class="spinner-border text-primary"></div>
+                        <p class="mt-2">Carregando detalhes...</p>
+                    </div>
+                    <div id="modalError" class="alert alert-danger d-none"></div>
+                    <div id="modalContent" class="d-none">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>K/D</th>
+                                        <th>Dano</th>
+                                        <th>Dano Recebido</th>
+                                        <th>CC's</th>
+                                        <th>Cura</th>
+                                        <th>Resultado</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="matchTable">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 

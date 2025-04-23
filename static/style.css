@@ -1,0 +1,236 @@
+body {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    min-height: 100vh;
+    padding-bottom: 60px;
+}
+
+.card {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.2);
+    border-radius: 15px;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+h1 {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+}
+
+.company-name {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6c757d;
+    font-weight: 400;
+}
+
+.form-control, .form-select {
+    background-color: #2d2d2d;
+    border: 1px solid #3d3d3d;
+    color: #fff !important;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: #2d2d2d;
+    border-color: #0d6efd;
+    color: #fff;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    border: none;
+    padding: 0.5rem 1.5rem;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0a58ca 0%, #084298 100%);
+    transform: translateY(-1px);
+}
+
+.table {
+    background-color: #2d2d2d;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table thead th {
+    background-color: #1a1a1a;
+    border-bottom: 2px solid #3d3d3d;
+    color: #fff;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #3d3d3d;
+    transform: scale(1.01);
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+.alert {
+    border-radius: 10px;
+    border: none;
+}
+
+#guildNameDisplay {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+}
+
+.text-muted {
+    color: #6c757d !important;
+}
+
+/* Estilos para os detalhes do jogador */
+.class-card {
+    background: linear-gradient(135deg, rgba(13, 110, 253, 0.1) 0%, rgba(13, 110, 253, 0.05) 100%);
+    border: 1px solid rgba(13, 110, 253, 0.2);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.class-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.2);
+}
+
+.class-header {
+    background: linear-gradient(135deg, rgba(13, 110, 253, 0.2) 0%, rgba(13, 110, 253, 0.1) 100%);
+    padding: 1rem;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid rgba(13, 110, 253, 0.2);
+}
+
+.class-header h6 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.class-body {
+    padding: 1rem;
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.stat-item {
+    padding: 0.5rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 0.25rem;
+}
+
+.stat-value {
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+.kd-stat {
+    color: #0dcaf0;
+    font-weight: 600;
+}
+
+.damage-stat {
+    color: #dc3545;
+}
+
+.cc-stat {
+    color: #9f5cfa;
+    font-weight: 600;
+}
+
+.win-rate-stat {
+    color: #ffc107;
+}
+
+.heal-stat {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#results {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.modal-content {
+    border: 1px solid rgba(13, 110, 253, 0.2);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, rgba(13, 110, 253, 0.2) 0%, rgba(13, 110, 253, 0.1) 100%);
+    border-bottom: 1px solid rgba(13, 110, 253, 0.2);
+}
+
+.modal-title {
+    color: #fff;
+    font-size: 1.25rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .table-responsive {
+        margin: 0 -1rem;
+    }
+
+    .stat-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Footer */
+.footer {
+    background-color: #1a1a1a;
+    border-top: 1px solid #3d3d3d;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer .text-muted {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+} 
